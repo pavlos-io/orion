@@ -6,7 +6,9 @@ class GiveawaysController < ApplicationController
   end
 
   def show
-    @giveaway = Giveaway.find(params[:id])
+    @giveaway   = Giveaway.find(params[:id])
+    owner       = Giveaway.find_owner(params[:id])
+    @created_by = User.find(owner).steam_name
   end
 
   def new
