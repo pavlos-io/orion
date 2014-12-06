@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  # post '/auth/steam/callback' => 'users/omniauth_callbacks'
+
   root 'home#index'
-  post 'auth/steam/callback' => 'home#index'
+  
+  get 'users/auth/failure' do
+    flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
+    redirect '/'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

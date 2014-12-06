@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 gem 'neat'              #bourbon + neat -> usefull sass mixins + grid system
 gem 'devise'            #devise auth.
 gem 'omniauth-steam'    #steam auth login
+gem 'figaro'
 # gem 'backbone-on-rails' #backboneJS framework: https://github.com/meleyal/backbone-on-rails
 # gem 'gon'               #sending data from server to js
 # gem 'momentjs-rails'    #js lib for time management helpers. No more painful js logic!!!

@@ -1,4 +1,9 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  # skip_before_filter :verify_authenticity_token, :only => :steam
+
+  def steam
+    raise 'steam2'
+  end
   # def twitter
   #   auth = request.env["omniauth.auth"]
   #   twitter_name = auth['info']['nickname'].downcase
@@ -44,4 +49,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   flash[:error] = "There was an error signing you in, please try again later"
   #   redirect_to new_user_session
   # end
+  def failure
+    redirect_to new_user_session_path, alert: "Authentication failed, please try again."
+  end
 end
