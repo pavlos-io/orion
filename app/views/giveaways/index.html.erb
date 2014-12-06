@@ -1,0 +1,17 @@
+<section class="grid-container">
+  <h1>All Giveaways</h1>
+  <div class="class giveaway__wrapper clearfix">
+    <ul>
+    <% if !@giveaways.empty? %> 
+      <% @giveaways.each do |giveaway| %>
+        <li class="zenti-card  class__item">
+          <%= link_to giveaway.game_name, giveaway%>
+        </li>
+      <% end %>
+    <%else%>
+      <p>No giveaways created yet.</p>
+      <%= link_to 'create one', new_giveaway_path%>
+    <%end%>
+    </ul>
+  </div>
+</section>

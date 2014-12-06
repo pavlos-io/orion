@@ -1,0 +1,13 @@
+<%= form_for @giveaway, :html => {:class => "form form--new-giveaway"} do |f| %>
+
+    <%= f.label :game_name, "Name", :class => "form--label" %>
+    <%= f.text_field(:game_name, 
+            :class       => "form--text new-giveaway__text", 
+            :id          => "game-name", 
+            :placeholder => "WoW") %>
+
+    <%= f.submit "Create", :class => "btn"%>
+    <%= link_to("Delete", giveaway_path(@giveaway), method: :delete, data: { confirm: "Delete Giveaway?" }, class: "btn btn-gray") unless @giveaway.new_record? %>
+    <%= f.button "Cancel", :class => "btn btn-gray"%>
+
+<% end %>

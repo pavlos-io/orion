@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:steam]
 
   has_many :user_tokens
+  has_many :giveaways
 
   def apply_omniauth(auth)
     self.steam_name = auth['info']['nickname']
