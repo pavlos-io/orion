@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206003608) do
+ActiveRecord::Schema.define(version: 20141206195238) do
+
+  create_table "user_tokens", force: true do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,8 +34,8 @@ ActiveRecord::Schema.define(version: 20141206003608) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "steam_name"
+    t.string   "steam_image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
