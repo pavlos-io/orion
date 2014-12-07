@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :giveaways
 
   #custom routes
-  get 'users/show/:id' => 'users#show', :as => 'profile'
+  get 'profile/:id' => 'users#show', :as => 'profile'
   get 'users/update'
 
   # get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

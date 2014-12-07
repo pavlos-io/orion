@@ -1,1 +1,2 @@
-<h1> <%= @giveaway.game_name %> </h1> by <%= link_to @created_by.steam_name, profile_path(@created_by.id) %>
+<h1> <%= @giveaway.game_name %> </h1> by 
+<%= link_to @created_by.steam_name, profile_path(@created_by.id) %>
