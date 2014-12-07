@@ -1,7 +1,15 @@
-<h1>'<%= @user.steam_name %>' Profile page</h1>
+<h1><u>'<%= @user.steam_name %>' Profile page</u></h1>
 
+<h2>Owner of:</h2>
 <ul>
-  <% @user.giveaways.each do |giveaway| %>
+  <% @owns_giveaways.each do |giveaway| %>
     <li><%= link_to giveaway.game_name, giveaway %></li>
+  <% end %>
+</ul>
+
+<h2>Participant of:</h2>
+<ul>
+  <% @joined_giveaways.each do |g| %>
+    <li><%= link_to g.giveaway_name, giveaway_path(g.giveaway_id) %></li>
   <% end %>
 </ul>

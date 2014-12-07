@@ -25,6 +25,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # Authentication not found, thus a new user.
         user = User.new
         user.apply_omniauth(auth)
+        user.email = "test@email.com" #TODO: resolve blank emails
 
         if user.save(validate: false)
           sign_in user

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :participations
   has_many :giveaways, :through => :participations
+  has_many :giveaways, class_name: Giveaway, foreign_key: :user_id
 
   def apply_omniauth(auth)
     self.steam_name = auth['info']['nickname']

@@ -6,9 +6,11 @@ class GiveawaysController < ApplicationController
   end
 
   def show
-    @giveaway   = Giveaway.find(params[:id])
-    owner       = Giveaway.find_owner(params[:id])
-    @created_by = User.find(owner)
+    @giveaway     = Giveaway.find(params[:id])
+    @participants = @giveaway.participations
+    owner         = Giveaway.find_owner(params[:id])
+    @created_by   = User.find(owner)
+    # render :plain => @participants.inspect
   end
 
   def new
@@ -33,6 +35,16 @@ class GiveawaysController < ApplicationController
 
   def destroy
     
+  end
+
+  def take_part
+    # render :plain => Giveaway.find(params[:id]).game_name
+    giveaway = Giveaway.find(params[:id]).game_name
+    Participation.create!(:user_id => current_user.id, 
+                          :user_name => current_user.steam_name,
+                          :giveaway_name => giveaway,
+                          :giveaway_id => params[:id])
+    redirect_to :back
   end
 
   private

@@ -1,2 +1,13 @@
-<h1> <%= @giveaway.game_name %> </h1> by 
+<h1> <u><%= @giveaway.game_name %></u> </h1> by 
 <%= link_to @created_by.steam_name, profile_path(@created_by.id) %>
+
+<h2>Participants</h2>
+<ul>
+  <% @participants.each do |p| %>
+    <li><%= link_to p.user_name, profile_path(p.user_id) %></li>
+  <% end %>
+</ul>
+
+<br><br>
+<%= button_to( "Take Part", :action => "take_part", :controller => "giveaways") %>
+<br><br>

@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '76563503054b360faf241618ab18c73c8cd76d1f06e84de7726c7f39113f6a403627036a6824b27a4a90d59627c4745023cb7ee642070b0c628397f70848fe48'
+  # config.secret_key = '3bc59aa61fb42d1ca5fcb5c833f085df587f2e06d01b99edbffff8a6fa9109a85c2eddca4de59cc23e1fdea287fb77bb21c684b724f6b15c157f07b56dc8b7f2'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -29,7 +29,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
+  config.authentication_keys = [ :steam_name ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -97,7 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '571d888ee0b4e4754d1065e7ed4a0d94023e983c71645cb4334ed6576a8497169f9a2b8f1ad6e6889b15fdca3f732ca748cbdf8daf6c2f23f5a5f98c12212cd4'
+  # config.pepper = '2c41c935ce90ea9027d39087db9cfe0430ac9b0e0d427aaa66d83ad8b9aadd20a3941588359266590636945120b492fd6059828f391ae93ed4465752f14353a0'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -232,7 +232,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :steam, ENV['STEAM_WEB_API_KEY']
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -256,4 +256,6 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.omniauth :steam, ENV['STEAM_WEB_API_KEY']
 end

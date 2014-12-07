@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207194615) do
+ActiveRecord::Schema.define(version: 20141207211950) do
 
   create_table "giveaways", force: true do |t|
     t.integer  "user_id"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20141207194615) do
     t.integer  "giveaway_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_name"
+    t.string   "giveaway_name"
   end
 
   create_table "user_tokens", force: true do |t|
